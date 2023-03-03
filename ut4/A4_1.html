@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+</head>
+<body>
+    <div class="carousel">  
+        <div><img src="https://www.w3schools.com/howto/img_nature.jpg" alt="" /></div>
+        <div><img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="" /></div>
+        <div><img src="https://www.w3schools.com/howto/img_5terre_wide.jpg" alt="" /></div>  
+    </div>  
+    <script>
+    $(document).ready(function(){
+        $('.carousel').slick({
+            arrows: true,
+            slidesToShow: 3,
+            autoplay: true,
+            autoplaySpeed:2500,
+            speed: 500,
+            variableWidth: true,
+            onAfterChange: function(){ 
+                var cat = ($('.carousel').slickCurrentSlide()) + 1;
+                $('.client-text > li').hide();
+                $('.client-text > li:nth-child('+ cat +')').show();
+            }
+        });
+    });
+    </script>
+</body>
+</html>
